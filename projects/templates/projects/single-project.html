@@ -5,6 +5,12 @@
 <h1>Sigle project</h1>
 
 <h2>{{projectObj.title}}</h2>
+<hr>
+{% for tag in projectObj.tags.all %}
+    <span style='border:1px solid grey'>{{tag}}</span>
+{% endfor %}
+<hr>
+<br>
 <p>{{projectObj.description}}</p>
 
 <a href="#">Go to main page -></a>
