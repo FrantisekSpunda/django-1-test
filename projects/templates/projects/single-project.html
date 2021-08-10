@@ -3,6 +3,9 @@
 {% block content %}
 
 <h2>{{projectObj.title}}</h2>
+
+<img style="max-width: 500px" src="{{ projectObj.featured_image.url }}" alt="">
+
 <hr>
 {% for tag in projectObj.tags.all %}
     <span style='border:1px solid grey'>{{tag}}</span>
