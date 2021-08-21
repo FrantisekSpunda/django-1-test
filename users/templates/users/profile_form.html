@@ -13,7 +13,7 @@
                 
                 {% for field in form %}
                     <div class="form__field">
-                        <label for="formInput#text">Text Field: </label>
+                        <label for="formInput#text">{{ field.label }}</label>
                         {{ field }}
                     </div>
 
