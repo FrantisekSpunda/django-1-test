@@ -17,13 +17,17 @@ def paginateBlocks(request, query_block, results):
 
 
     left_index = (int(page) - 3)
-    right_index = (int(page) + 3)
+    right_index = (int(page) + 4)
+
+    if left_index < 1:
+        right_index -= left_index - 1
+
+    if right_index > paginator.num_pages:
+        left_index -= right_index - paginator.num_pages - 1
+        right_index = paginator.num_pages + 1
 
     if left_index < 1:
         left_index = 1
-
-    if right_index > paginator.num_pages:
-        right_index = paginator.num_pages + 1
 
     custom_range = range(left_index, right_index)
     return custom_range, query_block

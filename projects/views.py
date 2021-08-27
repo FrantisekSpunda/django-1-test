@@ -11,7 +11,7 @@ from devsearch.utils import paginateBlocks
 def projects(request):
     projects, search_query = searchProjects(request)
     
-    custom_range, projects = paginateBlocks(request, projects, 1);
+    custom_range, projects = paginateBlocks(request, projects, 6);
 
     context = { 'projects': projects, 'search_query': search_query, 'custom_range': custom_range }
     return render(request, 'projects/projects.html', context)
