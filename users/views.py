@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from .utils import searchProfiles
+from devsearch.utils import paginateBlocks
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Profile
@@ -49,7 +50,7 @@ def registerUser(request):
             user.username = user.username.lower()
             user.save()
                        
-            messages.success(request, request, 'User account was created!')
+            messages.success(request, 'User account was created!')
             login(request, user)
             return redirect('edit-account')
         
@@ -65,7 +66,9 @@ def registerUser(request):
 def profiles(request):
     profiles,search_query = searchProfiles(request)
 
-    context = {'profiles': profiles, 'search_query': search_query}
+    custom_range, profiles = paginateBlocks(request, profiles, 6);
+
+    context = {'profiles': profiles, 'search_query': search_query, 'custom_range': custom_range}
     return render(request, 'users/profiles.html', context)
 
 def userProfile(request, pk):

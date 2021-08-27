@@ -4,13 +4,16 @@ from django.contrib import messages
 from .models import Project
 from .forms import ProjectForm
 from .utils import searchProjects
+from devsearch.utils import paginateBlocks
 
 # View projects #
 
 def projects(request):
     projects, search_query = searchProjects(request)
     
-    context = { 'projects': projects, 'search_query': search_query }
+    custom_range, projects = paginateBlocks(request, projects, 1);
+
+    context = { 'projects': projects, 'search_query': search_query, 'custom_range': custom_range }
     return render(request, 'projects/projects.html', context)
 
 

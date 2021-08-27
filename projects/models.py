@@ -20,6 +20,9 @@ class Project(models.Model):
     def __str__(self) -> str:
         return self.title
 
+    class Meta:
+        ordering = ['-created']
+
 class Rewiew(models.Model):
     VOTE_TYPE = (
         ('up', 'Up Vote'),

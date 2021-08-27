@@ -1,6 +1,7 @@
 from .models import Project, Tag
 from django.db.models import Q
 
+# Search functionality for projects
 def searchProjects(request):
     
     search_query = ''
