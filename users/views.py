@@ -5,7 +5,7 @@ from .utils import searchProfiles
 from devsearch.utils import paginateBlocks
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile, Message
 from .forms import CustomUserCreationForm, ProfileForm, SkillForm
 
 # Authentication #
@@ -151,3 +151,27 @@ def deleteSkill(request, pk):
 
     context = {'object': skill}
     return render(request, 'delete_template.html', context)
+
+
+# Inbox #
+
+@login_required(login_url='login')
+def inbox(request):
+    profile = request.user.profile
+    messageRequest = profile.messages.all()
+    unreadCount =   messageRequest.filter(is_read=False).count()
+
+    context = {'messageRequest': messageRequest, 'unreadCount': unreadCount}
+    return render(request, 'users/inbox.html', context)
+
+@login_required(login_url='login')
+def viewMessage(request, pk):
+    profile = request.user.profile
+    message = profile.messages.get(id=pk)
+    
+    if not message.is_read:
+        message.is_read = True
+        message.save()
+
+    context = {'message': message}
+    return render(request, 'users/message.html', context)
