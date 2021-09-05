@@ -43,6 +43,10 @@ def registerUser(request):
     page = 'register'
     form = CustomUserCreationForm()
 
+    if request.user.is_authenticated:
+        return redirect('profiles')
+
+
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
