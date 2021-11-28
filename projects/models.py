@@ -1,7 +1,7 @@
 from django.db import models
 import uuid
 
-from django.db.models import query
+from django.db.models import expressions, query
 from users.models import Profile
 
 # Create your models here.
@@ -24,6 +24,14 @@ class Project(models.Model):
 
     class Meta:
         ordering = ['-vote_ratio', '-vote_total', 'title']
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.featured_image.url
+        except:
+            url = ''
+        return url
 
     @property
     def getReviewers(self):
