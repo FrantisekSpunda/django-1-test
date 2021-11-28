@@ -18,6 +18,12 @@
                 </div>
                 {% endfor %}
 
+                <div class="form_field">
+                    {% for tag in project.tags.all %}
+                        <div class="project-tag tag tag-pill tag--main" data-tag="{{ tag.id }}" data-project="{{ project.id }}">{{ tag.name }} &#215;</div>
+                    {% endfor %}
+                </div>
+
                 <div class="form__field">
                     <label for="formInput#text">Tags</label>
                     <textarea name="newtags" class="input" cols="30" rows="2" placeholder="Add tags here..."></textarea>
