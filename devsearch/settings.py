@@ -92,12 +92,12 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DevSearch',
-        'USER': 'postgres',
-        'PASSWORD': 'Xmv2.54loffacJ',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'argonspunda',
+        'USER': 'frantaspunda',
+        'PASSWORD': 'Jt7=wsjs4M',
+        'HOST': 'mysql80.websupport.cz',
+        'PORT': '3314',
     }
 }
 
