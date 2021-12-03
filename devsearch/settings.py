@@ -87,7 +87,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'devsearch.wsgi.application'
+WSGI_APPLICATION = 'devsearch-by-spunda.wsgi.application'
 
 
 # Database
