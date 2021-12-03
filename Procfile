@@ -1,0 +1,1 @@
+web: gunicorn devsearch-by-spunda.wsgi --log-file -
