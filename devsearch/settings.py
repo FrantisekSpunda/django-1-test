@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-e_!_h*lz1tj^r3%h6(wt_i=6&u&5w*wxy7!2czjtg$mt+l^o^5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://devsearch-by-spunda.herokuapp.com/']
+ALLOWED_HOSTS = ['https://devsearch-by-spunda.herokuapp.com/',"devsearch-by-spunda.herokuapp.com", ".herokuapp.com", ".researchthroughdesign.org"]
 
 
 # Application definition
