@@ -1,1 +1,1 @@
-web: gunicorn devsearch-by-spunda.wsgi --log-file -
+web: gunicorn devsearch.wsgi --log-file -
