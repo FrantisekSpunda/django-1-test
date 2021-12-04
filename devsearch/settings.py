@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,7 @@ SECRET_KEY = 'django-insecure-e_!_h*lz1tj^r3%h6(wt_i=6&u&5w*wxy7!2czjtg$mt+l^o^5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["devsearch-by-spunda.herokuapp.com"]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','devsearch-by-spunda.herokuapp.com']
 
 
 # Application definition
@@ -229,3 +230,5 @@ AWS_STORAGE_BUCKET_NAME = 'devsearch-bucket-spunda'
 
 if os.getcwd() == '/app':
     DEBUG = False
+
+django_heroku.settings(locals())
